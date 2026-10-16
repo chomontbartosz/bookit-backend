@@ -2,7 +2,7 @@
         /**
          * Plugin Name: Book.it
          * Description: Custom visit appointments with headless REST API.
-         * Version: 1.1.0
+         * Version: 0.0.1
          * Author: bartosz.space
          * Author URI: https://bartosz.space
          */
@@ -11,7 +11,9 @@
             exit;
         }
 
-        final class BookItClinic
+require_once plugin_dir_path(__FILE__) . 'book-it-cron.php';
+
+        final class BookItApp
         {
             public function __construct()
             {
@@ -242,7 +244,7 @@
             }
         }
 
-        new BookItClinic();
+        new BookItApp();
 
         // Wyłącz blokowy edytor dla CPT doctor
         add_filter('use_block_editor_for_post_type', function ($use, $post_type) {
